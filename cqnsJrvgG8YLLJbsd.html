@@ -1,0 +1,490 @@
+<html><head><base href="https://pharma.online" target="_blank" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MaPharmacie.fr - Blog Santé</title>
+
+<style>
+:root {
+  --primary: #2c9f45;
+  --secondary: #1a6e31;
+  --accent: #f8f9fa;
+  --dark: #343a40;
+  --light: #ffffff;
+  --shadow: 0 4px 12px rgba(0,0,0,0.08);
+  --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  line-height: 1.6;
+  color: var(--dark);
+}
+
+.header {
+  backdrop-filter: blur(10px);
+  background: rgba(255, 255, 255, 0.95);
+  box-shadow: var(--shadow);
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+}
+
+.nav-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.logo svg {
+  width: 40px;
+  height: 40px;
+  fill: var(--primary);
+}
+
+.nav-links {
+  display: flex;
+  gap: 2rem;
+  list-style: none;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: var(--dark);
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: var(--primary);
+}
+
+.login-button {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: linear-gradient(45deg, var(--primary), var(--secondary));
+  color: var(--light);
+  padding: 0.6rem 1.2rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 500;
+  box-shadow: 0 2px 8px rgba(44, 159, 69, 0.25);
+  transform: translateY(0);
+  transition: var(--transition);
+}
+
+.login-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(44, 159, 69, 0.35);
+}
+
+.login-icon {
+  fill: currentColor;
+}
+
+.hero-section {
+  background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://source.unsplash.com/random/1600x900/?health,advice');
+  background-size: cover;
+  background-position: center;
+  height: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: white;
+  margin-top: 80px;
+}
+
+.hero-content h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 4rem 2rem;
+}
+
+.featured-post {
+  padding: 4rem 0;
+  background: var(--accent);
+}
+
+.featured-article {
+  background: white;
+  border-radius: 15px;
+  padding: 2rem;
+  box-shadow: var(--shadow);
+}
+
+.category {
+  display: inline-block;
+  background: var(--primary);
+  color: white;
+  padding: 0.3rem 1rem;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+}
+
+.meta {
+  color: #666;
+  margin-bottom: 1rem;
+}
+
+.read-more-btn {
+  display: inline-block;
+  background: var(--primary);
+  color: white;
+  padding: 0.8rem 1.5rem;
+  border-radius: 5px;
+  text-decoration: none;
+  margin-top: 1rem;
+  transition: var(--transition);
+}
+
+.read-more-btn:hover {
+  background: var(--secondary);
+}
+
+.blog-categories {
+  margin-top: 3rem;
+}
+
+.category-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.category-card {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 10px;
+  text-align: center;
+  text-decoration: none;
+  color: var(--dark);
+  box-shadow: var(--shadow);
+  transition: var(--transition);
+}
+
+.category-card:hover {
+  transform: translateY(-5px);
+}
+
+.category-card svg {
+  fill: var(--primary);
+  margin-bottom: 1rem;
+}
+
+.latest-posts {
+  margin-top: 3rem;
+}
+
+.posts-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.post-card {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 10px;
+  box-shadow: var(--shadow);
+}
+
+.post-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.date {
+  color: #666;
+  font-size: 0.9rem;
+}
+
+.footer {
+  background: var(--dark);
+  color: var(--light);
+  padding: 4rem 2rem 2rem;
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+}
+
+.footer-section h4 {
+  color: var(--primary);
+  margin-bottom: 1.5rem;
+  font-size: 1.2rem;
+}
+
+.footer-links {
+  list-style: none;
+}
+
+.footer-links li {
+  margin-bottom: 0.8rem;
+}
+
+.footer-links a {
+  color: var(--light);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+  color: var(--primary);
+}
+
+.footer-bottom {
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(255,255,255,0.1);
+  text-align: center;
+  font-size: 0.9rem;
+}
+
+.social-links {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.social-links svg {
+  width: 24px;
+  height: 24px;
+  fill: var(--light);
+  transition: fill 0.3s ease;
+}
+
+.social-links a:hover svg {
+  fill: var(--primary);
+}
+
+@media (max-width: 768px) {
+  .advice-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .articles-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .footer-container {
+    grid-template-columns: 1fr;
+  }
+}
+
+</style>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<header class="header">
+  <nav class="nav-container">
+    <div class="logo">
+      <svg viewBox="0 0 24 24">
+        <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 14H4V6h16v12zM6 10h2v2H6v-2zm0 4h8v2H6v-2zm10 0h2v2h-2v-2zm-6-4h8v2h-8v-2z"/>
+      </svg>
+      <h1>MaPharmacie.fr</h1>
+    </div>
+    <ul class="nav-links">
+      <li><a href="https://pharma.online/ordonnance">Ordonnance</a></li>
+      <li><a href="https://pharma.online/click-collect">Click & Collect</a></li>
+      <li><a href="https://pharma.online/conseils">Conseils</a></li>
+      <li><a href="https://pharma.online/blog">Blog Santé</a></li>
+      <li><a href="https://pharma.online/contact">Contact</a></li>
+    </ul>
+    <button class="login-button" onclick="window.location.href='https://pharma.online/connexion'">
+      <svg class="login-icon" viewBox="0 0 24 24" width="20" height="20">
+        <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+      </svg>
+      Se connecter
+    </button>
+  </nav>
+</header>
+
+<section class="hero-section">
+  <div class="hero-content">
+    <h1>Blog Santé</h1>
+    <p>Actualités et conseils pour votre santé au quotidien</p>
+  </div>
+</section>
+
+<section class="featured-post">
+  <div class="container">
+    <div class="featured-article">
+      <div class="featured-content">
+        <span class="category">À la une</span>
+        <h2>Les bienfaits de la vitamine D en hiver</h2>
+        <p class="meta">Par Dr. Marie Laurent | 12 janvier 2024</p>
+        <p class="excerpt">
+          Découvrez pourquoi la vitamine D est essentielle pendant les mois d'hiver et comment maintenir des niveaux optimaux...
+        </p>
+        <a href="https://pharma.online/blog/vitamine-d-hiver" class="read-more-btn">Lire l'article</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="blog-categories">
+  <div class="container">
+    <h2>Catégories</h2>
+    <div class="category-grid">
+      <a href="https://pharma.online/blog/bien-etre" class="category-card">
+        <svg viewBox="0 0 24 24" width="32" height="32">
+          <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93z"/>
+        </svg>
+        <h3>Bien-être</h3>
+      </a>
+      <a href="https://pharma.online/blog/nutrition" class="category-card">
+        <svg viewBox="0 0 24 24" width="32" height="32">
+          <path d="M20 3H4c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H4V5h16v14z"/>
+        </svg>
+        <h3>Nutrition</h3>
+      </a>
+      <a href="https://pharma.online/blog/sport-sante" class="category-card">
+        <svg viewBox="0 0 24 24" width="32" height="32">
+          <path d="M13.49 5.48c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm-3.6 13.9l1-4.4 2.1 2v6h2v-7.5l-2.1-2 .6-3c1.3 1.5 3.3 2.5 5.5 2.5v-2c-1.9 0-3.5-1-4.3-2.4l-1-1.6c-.4-.6-1-1-1.7-1-.3 0-.5.1-.8.1l-5.2 2.2v4.7h2v-3.4l1.8-.7-1.6 8.1-4.9-1-.4 2 7 1.4z"/>
+        </svg>
+        <h3>Sport & Santé</h3>
+      </a>
+      <a href="https://pharma.online/blog/medicaments" class="category-card">
+        <svg viewBox="0 0 24 24" width="32" height="32">
+          <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-1 16H6c-.55 0-1-.45-1-1V6c0-.55.45-1 1-1h12c.55 0 1 .45 1 1v12c0 .55-.45 1-1 1z"/>
+        </svg>
+        <h3>Médicaments</h3>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="latest-posts">
+  <div class="container">
+    <h2>Derniers Articles</h2>
+    <div class="posts-grid">
+      <article class="post-card">
+        <div class="post-meta">
+          <span class="category">Nutrition</span>
+          <span class="date">10 Jan 2024</span>
+        </div>
+        <h3>Alimentation anti-inflammatoire : les meilleurs aliments</h3>
+        <p>Guide complet des aliments qui combattent l'inflammation...</p>
+        <a href="https://pharma.online/blog/alimentation-anti-inflammatoire" class="read-more">Lire plus</a>
+      </article>
+
+      <article class="post-card">
+        <div class="post-meta">
+          <span class="category">Bien-être</span>
+          <span class="date">8 Jan 2024</span>
+        </div>
+        <h3>Gestion du stress : techniques naturelles</h3>
+        <p>Découvrez les meilleures pratiques pour gérer votre stress...</p>
+        <a href="https://pharma.online/blog/gestion-stress" class="read-more">Lire plus</a>
+      </article>
+
+      <article class="post-card">
+        <div class="post-meta">
+          <span class="category">Sport</span>
+          <span class="date">5 Jan 2024</span>
+        </div>
+        <h3>Récupération après le sport</h3>
+        <p>Les secrets d'une bonne récupération musculaire...</p>
+        <a href="https://pharma.online/blog/recuperation-sport" class="read-more">Lire plus</a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="footer-container">
+    <div class="footer-section">
+      <h4>MaPharmacie.fr</h4>
+      <ul class="footer-links">
+        <li><a href="https://pharma.online/a-propos">À propos de nous</a></li>
+        <li><a href="https://pharma.online/equipe">Notre équipe</a></li>
+        <li><a href="https://pharma.online/carrieres">Carrières</a></li>
+        <li><a href="https://pharma.online/actualites">Actualités</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-section">
+      <h4>Services</h4>
+      <ul class="footer-links">
+        <li><a href="https://pharma.online/ordonnance">Ordonnance en ligne</a></li>
+        <li><a href="https://pharma.online/click-collect">Click & Collect</a></li>
+        <li><a href="https://pharma.online/conseils">Conseils santé</a></li>
+        <li><a href="https://pharma.online/livraison">Livraison à domicile</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-section">
+      <h4>Aide & Contact</h4>
+      <ul class="footer-links">
+        <li><a href="https://pharma.online/faq">FAQ</a></li>
+        <li><a href="https://pharma.online/contact">Nous contacter</a></li>
+        <li><a href="https://pharma.online/urgences">Numéros d'urgence</a></li>
+        <li><a href="https://pharma.online/pharmacie-garde">Pharmacies de garde</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-section">
+      <h4>Informations légales</h4>
+      <ul class="footer-links">
+        <li><a href="https://pharma.online/mentions-legales">Mentions légales</a></li>
+        <li><a href="https://pharma.online/cgv">CGV</a></li>
+        <li><a href="https://pharma.online/confidentialite">Politique de confidentialité</a></li>
+        <li><a href="https://pharma.online/cookies">Gestion des cookies</a></li>
+      </ul>
+      <div class="social-links">
+        <a href="https://facebook.com/mapharmacie" aria-label="Facebook">
+          <svg viewBox="0 0 24 24"><path d="M18.77,7.46H14.5v-1.9c0-.9.6-1.1,1-1.1h3V.5L14.84.5C10.44.5,9.5,3.44,9.5,7.04v2.42h-3v4h3v12h5v-12h3.85l.42-4Z"/></svg>
+        </a>
+        <a href="https://twitter.com/mapharmacie" aria-label="Twitter">
+          <svg viewBox="0 0 24 24"><path d="M23.954 4.569c-.885.389-1.83.654-2.825.775 1.014-.611 1.794-1.574 2.163-2.723-.951.555-2.005.959-3.127 1.184-.896-.959-2.173-1.559-3.591-1.559-2.717 0-4.92 2.203-4.92 4.917 0 .39.045.765.127 1.124C7.691 8.094 4.066 6.13 1.64 3.161c-.427.722-.666 1.561-.666 2.475 0 1.71.87 3.213 2.188 4.096-.807-.026-1.566-.248-2.228-.616v.061c0 2.385 1.693 4.374 3.946 4.827-.413.111-.849.171-1.296.171-.314 0-.615-.03-.916-.086.631 1.953 2.445 3.377 4.604 3.417-1.68 1.319-3.809 2.105-6.102 2.105-.39 0-.779-.023-1.17-.067 2.189 1.394 4.768 2.209 7.557 2.209 9.054 0 13.999-7.496 13.999-13.986 0-.209 0-.42-.015-.63.961-.689 1.8-1.56 2.46-2.548l-.047-.02z"/></svg>
+        </a>
+        <a href="https://instagram.com/mapharmacie" aria-label="Instagram">
+          <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+  
+  <div class="footer-bottom">
+    <p>© 2024 MaPharmacie.fr - Tous droits réservés</p>
+    <p>Pharmacie enregistrée à l'Ordre National des Pharmaciens sous le numéro 12345</p>
+  </div>
+</footer>
+</body></html>
